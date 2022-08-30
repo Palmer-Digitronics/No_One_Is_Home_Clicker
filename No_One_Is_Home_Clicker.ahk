@@ -3,6 +3,33 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+/*
+This is a clicker script for Thimbleweed Park, to get the No One is Home achievement.
+
+For this to work properly, you need to be using the default safe area and the full Screen
+1920x1080 resolution. 
+
+Thimbleweed Park must be running before running this script - You will need to be playing
+as Agent Ray at a point where she has the cell phone in her third inventory slot. If you 
+collected the county map with Ray, you can use AutoHotkey's WindowSpy to find the 
+appropriatenew coordinates, but it will probably be quicker to start a new save until 
+you can make calls with Ray.
+
+These numbers are all straight from the phone book, but not all numbers answer on the
+first ring. It seems to be a little better than 50% for me, so there are 190 numbers
+here to get you the required 100. If you do not have the No One is Home achievement
+after this finishes, you will either be very close with just a few calls left to
+make by hand, or your resolution/window size doesn't match the standard.
+
+Thanks to steam user offfffffff who wrote the original python script for the linux
+version of this game that inspired me (and supplied coordinates to me) to write
+this AHK version for windows. 
+
+offfffffff's Original python script at:
+https://steamcommunity.com/sharedfiles/filedetails/?id=1798902895
+*/
+
+
 List(listName,integer)
 {
  Loop, parse, listName, |
@@ -251,6 +278,7 @@ IfWinExist, Thimbleweed Park
     WinActivate
 Else
     MsgBox,, No One Is Home Clicker, Thimbleweed Park doesn't seem to be running
+    ExitApp 1
 
 Sleep, 600
 
