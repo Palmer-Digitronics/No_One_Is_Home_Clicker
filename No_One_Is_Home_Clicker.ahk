@@ -1,7 +1,7 @@
 ﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+#SingleInstance Force
 
 /*
 This is a clicker script for Thimbleweed Park, to get the No One is Home achievement.
@@ -16,10 +16,14 @@ appropriatenew coordinates, but it will probably be quicker to start a new save 
 you can make calls with Ray.
 
 These numbers are all straight from the phone book, but not all numbers answer on the
-first ring. It seems to be a little better than 50% for me, so there are 190 numbers
-here to get you the required 100. If you do not have the No One is Home achievement
-after this finishes, you will either be very close with just a few calls left to
-make by hand, or your resolution/window size doesn't match the standard.
+first ring. It seems to be a little better than 50% for me, so there are 252 numbers
+here to get you the required 100 even with some bad luck. If you do not have the No 
+One is Home achievement after this finishes, most likely your resolution/window size
+doesn't match the standard or the script cannot find the Thimbleweed Park window to
+begin.
+
+You can either let the script finish, at which point it will pop a message box
+letting you know it's done, or you can press Escape at any time to kill the script.
 
 Thanks to steam user offfffffff who wrote the original python script for the linux
 version of this game that inspired me (and supplied coordinates to me) to write
@@ -231,6 +235,67 @@ numbers =
     seven|four|three|one, 
     eight|seven|seven|one, 
     six|zero|eight|three, 
+    three|two|eight|eight, 
+    seven|six|seven|eight, 
+    six|eight|one|seven, 
+    eight|three|zero|five, 
+    six|eight|seven|eight, 
+    three|one|nine|two, 
+    six|nine|three|three, 
+    eight|zero|one|five, 
+    one|eight|zero|one, 
+    four|one|seven|three, 
+    eight|eight|six|eight, 
+    one|eight|nine|zero, 
+    eight|one|zero|zero, 
+    three|six|six|six, 
+    four|nine|seven|zero, 
+    six|three|six|eight, 
+    one|one|one|one, 
+    four|three|one|seven, 
+    two|nine|eight|five, 
+    five|eight|six|one, 
+    four|six|seven|two, 
+    three|three|five|four, 
+    three|two|eight|five, 
+    four|one|zero|nine, 
+    eight|two|one|seven, 
+    six|eight|nine|five, 
+    four|seven|six|four, 
+    six|four|nine|four, 
+    two|three|four|two, 
+    eight|four|nine|one, 
+    three|three|zero|one, 
+    four|six|five|six, 
+    six|nine|three|seven, 
+    two|seven|five|two, 
+    seven|six|three|three, 
+    one|seven|one|eight, 
+    four|seven|six|eight, 
+    one|nine|eight|zero, 
+    six|seven|three|zero, 
+    two|four|seven|two, 
+    four|three|six|eight, 
+    three|four|four|eight, 
+    four|five|six|two, 
+    five|six|four|one, 
+    six|three|one|four, 
+    eight|five|four|five, 
+    two|two|nine|zero, 
+    seven|six|five|nine, 
+    four|four|eight|two, 
+    one|six|two|nine, 
+    six|five|four|zero, 
+    seven|zero|four|four, 
+    two|four|nine|four, 
+    four|one|nine|five, 
+    three|three|two|four, 
+    three|four|eight|five, 
+    four|six|eight|one, 
+    two|six|eight|three, 
+    two|four|one|five, 
+    seven|seven|zero|nine, 
+    three|one|four|zero
 )
 
 Array := StrSplit(numbers, ",", "[],` ```n")
@@ -282,7 +347,7 @@ Else
 
 Sleep, 600
 
-Loop 190
+Loop 252
 {   
     Click, %phonex% %phoney%
 
